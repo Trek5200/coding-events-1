@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<body class="container">
 
 <header th:replace="fragments :: header"></header>
 
-<ul>
-    <th:block th:each="event : ${events}">
-        <li th:text="${event}"></li>
-    </th:block>
-</ul>
+<!--<ul>-->
+<!--    <th:block th:each="event : ${events}">-->
+<!--        <li th:text="${event}"></li>-->
+<!--    </th:block>-->
+<!--</ul>-->
+
+<table th:replace="fragments :: eventTable">
+<!--        <tr>-->
+<!--            <td>Event Name</td>-->
+<!--            <td>Event Description</td>-->
+<!--            <td>Event Address</td>-->
+<!--        </tr>-->
+<!--    <th:block th:each="event : ${events}">-->
+<!--        <tr>-->
+<!--            <td th:text="${event.getKey()}">No event: Enter an event</td>-->
+<!--            <td th:text="${event.getValue()}">No event: Enter event Description</td>-->
+<!--            <td th:text="${address}">Address goes here</td>-->
+<!--        </tr>-->
+<!--    </th:block>-->
+</table>
 
 </body>
 </html>

@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>fragments.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #e8bf6a;}
+.s1 { color: #bababa;}
+.s2 { color: #a9b7c6;}
+.s3 { color: #a5c261;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+fragments.html</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;!DOCTYPE </span><span class="s1">html</span><span class="s0">&gt;</span>
+<span class="s0">&lt;html </span><span class="s1">lang</span><span class="s3">=&quot;en&quot; </span><span class="s1">xmlns:th</span><span class="s3">=&quot;http://www.thymeleaf.org/&quot;</span><span class="s0">&gt;</span>
+<span class="s0">&lt;head </span><span class="s1">th:fragment</span><span class="s3">=&quot;head&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;meta </span><span class="s1">charset</span><span class="s3">=&quot;UTF-8&quot;</span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;title&gt;</span><span class="s2">Coding Events</span><span class="s0">&lt;/title&gt;</span>
+    <span class="s0">&lt;link </span><span class="s1">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s1">th:href</span><span class="s3">=&quot;@{/styles.css}&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;script </span><span class="s1">th:src</span><span class="s3">=&quot;@{/script.js}&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+<span class="s0">&lt;/head&gt;</span>
+<span class="s0">&lt;body&gt;</span>
+
+<span class="s0">&lt;nav </span><span class="s1">th:fragment</span><span class="s3">=&quot;header&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;h1 </span><span class="s1">th:text</span><span class="s3">=&quot;${title}&quot;</span><span class="s0">&gt;</span><span class="s2">Coding Events</span><span class="s0">&lt;/h1&gt;</span>
+    <span class="s0">&lt;ul&gt;</span>
+        <span class="s0">&lt;li&gt;&lt;a </span><span class="s1">href</span><span class="s3">=&quot;/events&quot;</span><span class="s0">&gt;</span><span class="s2">All Events</span><span class="s0">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="s0">&lt;li&gt;&lt;a </span><span class="s1">href</span><span class="s3">=&quot;/events/create&quot;</span><span class="s0">&gt;</span><span class="s2">Create Event</span><span class="s0">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="s0">&lt;/ul&gt;</span>
+<span class="s0">&lt;/nav&gt;</span>
+
+<span class="s0">&lt;/body&gt;</span>
+<span class="s0">&lt;/html&gt;</span></pre>
+</body>
+</html>
