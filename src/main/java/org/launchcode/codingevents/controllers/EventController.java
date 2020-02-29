@@ -1,8 +1,10 @@
 package org.launchcode.codingevents.controllers;
 
 import org.launchcode.codingevents.data.EventData;
+import org.launchcode.codingevents.data.EventRepository;
 import org.launchcode.codingevents.models.Event;
 import org.launchcode.codingevents.models.EventType;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -17,10 +19,18 @@ import javax.validation.Valid;
 @RequestMapping("events")
 public class EventController {
 
+    @Autowired
+    private EventRepository eventRepository;
+//    @Autowired specifies that SpringBoot should auto populate eventRepository, no constructor, no setters, to assign a value
+//    because we want Spring to automatically manage this class, these fields for us.
+//    Uses a feature of Spring called "Dependency Injection" also called "Inversion of Control"
+//    @Autowired will look for any EventRepository and populate eventRepository with that info
+//    @Repository (in EventRepository.java) is what tells Spring to instantiate a class of EventRepository on the fly???
+
     @GetMapping
     public String displayAllEvents(Model model) {
         model.addAttribute("title", "All Events");
-        model.addAttribute("events", EventData.getAll());
+        model.addAttribute("events", eventRepository.findAll());
         return "events/index";
     }
 
@@ -40,14 +50,14 @@ public class EventController {
             return "events/create";
         }
 
-        EventData.add(newEvent);
+        eventRepository.save(newEvent);
         return "redirect:";
     }
 
     @GetMapping("delete")
     public String displayDeleteEventForm(Model model) {
         model.addAttribute("title", "Delete Events");
-        model.addAttribute("events", EventData.getAll());
+        model.addAttribute("events", eventRepository.findAll());
         return "events/delete";
     }
 
@@ -56,7 +66,7 @@ public class EventController {
 
         if (eventIds != null) {
             for (int id : eventIds) {
-                EventData.remove(id);
+                eventRepository.deleteById(id);
             }
         }
 
