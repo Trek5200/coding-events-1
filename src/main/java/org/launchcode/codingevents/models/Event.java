@@ -1,22 +1,26 @@
 package org.launchcode.codingevents.models;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+//import java.util.Objects;
 
 /**
  * Created by Chris Bay
  */
 @Entity
-public class Event {
+public class Event extends AbstractEntity {
 
-    @Id
-    @GeneratedValue
-    private int id;
+//    Move the 4 class members that we identified as being duplicated across both models up into AbstractEntity.
+//          id, getId, equals, hashMap
+//    Now your Event class will inherit these members rather than define them itself.
+
+//    @Id
+//    @GeneratedValue
+//    private int id;
 
     @NotBlank(message = "Name is required")
     @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
@@ -72,25 +76,25 @@ public class Event {
         this.type = type;
     }
 
-    public int getId() {
-        return id;
-    }
+//    public int getId() {
+//        return id;
+//    }
 
     @Override
     public String toString() {
         return name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Event event = (Event) o;
-        return id == event.id;
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Event event = (Event) o;
+//        return id == event.id;
+//    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id);
+//    }
 }
